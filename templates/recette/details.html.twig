@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+
+    <h1>{{ recipe.nom }}</h1>
+
+    <img src="/pictures/{{ recipe.image }}" height="250">
+
+    <div>
+        <h4>Ingrédients : </h4>
+        <p>{{ recipe.ingredient1 }} : {{ recipe.quantite1 }}</p>
+        <p>{{ recipe.ingredient2 }} : {{ recipe.quantite2 }}</p>
+        <p>{{ recipe.ingredient3 }} : {{ recipe.quantite3 }}</p>
+    </div>
+
+    <div>
+        <h4>Description de la recette : </h4>
+        <p>{{ recipe.description }}</p>
+    </div>
+
+{% endblock %}

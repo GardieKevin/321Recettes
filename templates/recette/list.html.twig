@@ -6,4 +6,22 @@
 
     <button>Trier par nom</button>
 
+    <section>
+        {% for recipe in recipes %}
+            <article>
+                {% if (recipe.estFavori == true) %}
+                    <img src="{{ asset('pictures/yellow star.jpg') }}" height="50" alt="yellow_star">
+                {% else %}
+                    <img src="{{ asset('pictures/white star.jpg') }}" height="50" alt="white_star">
+                {% endif %}
+                
+                <a href="{{ path('recettes_details', {'id': recipe.id}) }}">{{ recipe.nom }}</a>
+                <img src="/pictures/{{ recipe.image }}" height="150" alt="image_recette">
+
+                <button class="bouton">Ajouter aux favoris</button>
+
+            </article>
+        {% endfor %}
+    </section>
+
 {% endblock %}
