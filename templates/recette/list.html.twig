@@ -2,9 +2,8 @@
 
 {% block contenu %}
 
-    <button>Trier par favori</button>
-
-    <button>Trier par nom</button>
+    <input type="submit" value="Trier par favoris" onclick="window.location.href = '{{ path('recettes_tri') }}';">
+    <input type="submit" value="Trier par noms" onclick="window.location.href = '{{ path('recettes_list') }}';">
 
     <section>
         {% for recipe in recipes %}
@@ -14,7 +13,6 @@
                 {% else %}
                     <img src="{{ asset('pictures/white star.jpg') }}" height="50" alt="white_star">
                 {% endif %}
-                
                 <a href="{{ path('recettes_details', {'id': recipe.id}) }}">{{ recipe.nom }}</a>
                 <img src="/pictures/{{ recipe.image }}" height="150" alt="image_recette">
 

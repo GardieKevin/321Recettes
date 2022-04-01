@@ -53,6 +53,15 @@ class RecetteRepository extends ServiceEntityRepository
         return $resultat;
     }
 
+    public function findFavoriteRecipes(){
+        $qb = $this->createQueryBuilder('f');
+        $qb->andWhere('f.est_favori = true');
+        $qb->addOrderBy('f.nom', 'ASC');
+        $req = $qb->getQuery();
+        $resultat = $req->getResult();
+        return $resultat;
+    }
+
     // /**
     //  * @return Recette[] Returns an array of Recette objects
     //  */

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+
+    <input type="submit" value="Trier par favoris" onclick="window.location.href = '{{ path('recettes_tri') }}';">
+    <input type="submit" value="Trier par noms" onclick="window.location.href = '{{ path('recettes_list') }}';">
+
+    <section>
+        {% for recipe in recipes %}
+            <article>
+                {% if (recipe.estFavori == true) %}
+                    <a href="{{ path('recettes_details', {'id': recipe.id}) }}">{{ recipe.nom }}</a>
+                    <img src="/pictures/{{ recipe.image }}" height="150" alt="image_recette">
+                {% endif %}
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}
+

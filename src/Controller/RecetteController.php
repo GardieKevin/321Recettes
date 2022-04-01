@@ -18,7 +18,19 @@ class RecetteController extends AbstractController
     {
         $recipes = $recetteRepository->findAllRecipes();
         return $this->render('recette/list.html.twig',
-            compact("recipes")
+            compact( "recipes")
+        );
+    }
+
+    #[Route('/recettes/tri', name: 'recettes_tri')]
+    public function listFavorites(
+        RecetteRepository $recetteRepository
+    ): Response
+
+    {
+        $recipes = $recetteRepository->findFavoriteRecipes();
+        return $this->render('recette/tri.html.twig',
+            compact( "recipes")
         );
     }
 
